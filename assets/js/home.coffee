@@ -44,13 +44,26 @@ app.controller('Notice',($scope,$http)->
     $scope.data  = data;
   );
 )
-app.controller('Gallery',($scope,$http)->
+app.controller('Gallery',($scope,$http,$rootScope)->
+  _current_image  = 0;
+  _count_image    = 0;
   $http.get("json/gallery.json").success((data)->
     $scope.images = data;
-    $scope.default_images = $scope.images[0];
+    $scope.default_images = $scope.images[_current_image ];
+    _count_image = $scope.images.length;
   );
-  $scope.change = (img) ->
+  $scope.change = (img,$index) ->
     $scope.default_images = img;
+    _current_image = $index;
+
+  setInterval(->
+    _current_image++;
+    if(_count_image <= _current_image )
+      _current_image = 0;
+    $scope.$apply(->
+      $scope.default_images = $scope.images[_current_image]
+    )
+  ,4000)
 )
 
 

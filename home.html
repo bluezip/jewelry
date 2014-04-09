@@ -141,7 +141,7 @@
 
                             <div class="photo-slide">
                                 <ul class="slide">
-                                    <li ng-class="{'active': img.id === default_images.id}" ng-repeat="img in images"><a href="#" ng-click="change(img)">&nbsp;</a></li>
+                                    <li ng-class="{'active': img.id === default_images.id}" ng-repeat="img in images"><a href="#" ng-click="change(img,$index)">&nbsp;</a></li>
                                 </ul>
                             </div>
                         </div>

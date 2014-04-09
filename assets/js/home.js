@@ -50,14 +50,28 @@
     });
   });
 
-  app.controller('Gallery', function($scope, $http) {
+  app.controller('Gallery', function($scope, $http, $rootScope) {
+    var _count_image, _current_image;
+    _current_image = 0;
+    _count_image = 0;
     $http.get("json/gallery.json").success(function(data) {
       $scope.images = data;
-      return $scope.default_images = $scope.images[0];
+      $scope.default_images = $scope.images[_current_image];
+      return _count_image = $scope.images.length;
     });
-    return $scope.change = function(img) {
-      return $scope.default_images = img;
+    $scope.change = function(img, $index) {
+      $scope.default_images = img;
+      return _current_image = $index;
     };
+    return setInterval(function() {
+      _current_image++;
+      if (_count_image <= _current_image) {
+        _current_image = 0;
+      }
+      return $scope.$apply(function() {
+        return $scope.default_images = $scope.images[_current_image];
+      });
+    }, 4000);
   });
 
   $('body').on('click', '.link-forgot-password', function() {
