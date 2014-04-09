@@ -11,6 +11,8 @@
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/home.css" rel="stylesheet">
     <link href="bower_components/daneden.animate/animate.css" rel="stylesheet">
+    <link href="bower_components/daneden.animate/animate.css" rel="stylesheet">
+    <link href="bower_components/colorbox/example2/colorbox.css" rel="stylesheet">
 
 
 
@@ -24,6 +26,7 @@
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
 
     <title>My Web Application</title>
     <!-- Latest compiled and minified JavaScript -->
@@ -48,7 +51,7 @@
                 </ul>
                 <ul class="nav mb-20">
                     <li>
-                        <a href="#type">WHAT IS NEW ?</a>
+                        <a href="product.html?page=what-is-new">WHAT IS NEW ?</a>
                     </li>
                 </ul>
 
@@ -94,7 +97,6 @@
                                 </ul>
                             </div>
                         </div>
-
                     </div>
                 </div><!-- .search -->
 
@@ -103,18 +105,120 @@
     </div><!-- .slide-left -->
 
     <div class="content-container">
-        <div class="content-div">
-            <div class="screen" data-image="/images/banner/2.png"></div><!-- .screen -->
-            <div class="alert alert-danger fade in warning" ng-class="{'hidden' : data.show !== true}" ng-controller="Notice">
-                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <h4>{{ data.title }}</h4>
-                <p>{{ data.description }}</p>
-                <p>
+        <div class="content-div" ng-controller="Gallery">
+            <div class="screen" ng-style="{'background-image':'url('+default_images.image+')'}">
+                <div class="wrapper-form-login">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="form-login">
+                            <div class="form">
+                                <form id="login-form" action="login.html" method="post">
+                                    <div class="labels">
+                                        <input placeHolder="Email" class="form-control" name="email" id="email" type="text" />
+                                    </div>
+                                    <div class="labels">
+                                        <input placeHolder="Password" class="form-control" name="password" id="password" type="password" />
+                                    </div>
+
+                                    <div class="buttons labels">
+                                        <input type="submit" value="LOGIN" />
+                                    </div>
+                                </form>
+                            </div><!-- .form -->
+
+                            <div class="forgot-password">
+                                <a href="forgot-password.html" class="link-forgot-password">Forgot Your Password ?</a>
+                            </div><!-- .forgot-password -->
+
+                            <div class="new-customer">
+                                <a href="new-customer.html" class="link-new-customer">NEW CUSTOMER</a>
+                            </div><!-- .new-customer -->
+
+                            <div class="only-wholesalers">
+                                <p>Only Wholesalers</p>
+                                <p>& Retailers</p>
+                            </div>
+
+                            <div class="photo-slide">
+                                <ul class="slide">
+                                    <li ng-class="{'active': img.id === default_images.id}" ng-repeat="img in images"><a href="#" ng-click="change(img)">&nbsp;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .wrapper-form-login -->
+            </div><!-- .screen -->
+
+            <div class="col-xs-12" ng-class="{'hidden' : data.show !== true}" ng-controller="Notice">
+                <div class="alert alert-danger fade in warning">
+                    <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                    <h4>{{ data.title }}</h4>
+                    <p>{{ data.description }}</p>
+                </div>
             </div>
         </div>
     </div><!-- content-container -->
 </div>
 
+
+<script type="text/ng-template" id="forgot-password">
+    <div class="wrapper-for-forgot-password form-popup">
+        <div class="col-xs-6 text-center head-menu"></div>
+        <div class="col-xs-6 text-center head-menu"><span class="pull-right close-popup">X</span></div>
+        <div class="col-xs-12 mt-15 form">
+            <div class="col-xs-3 col-xs-offset-1 text-right">
+                <label for="email">Email</label>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Email"/>
+            </div>
+            <div class="clearfix mb-10"></div>
+            <div class="mt-5">
+                <button type="submit" class="btn btn-default submit-form receive-password">RECEIVE PASSWORD</button>
+            </div>
+        </div><!-- .col-xs-12
+    </div>
+</script>
+<script type="text/template" id="new-customer">
+    <div class="wrapper-for-register form-popup">
+        <div class="col-xs-6 text-center head-menu"></div>
+        <div class="col-xs-6 text-center head-menu"><span class="pull-right close-popup">X</span></div>
+        <div class="col-xs-12 mt-10 form">
+            <div class="col-xs-3 col-xs-offset-2">
+                <label for="email">Email</label>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Email"/>
+            </div>
+            <div class="clearfix mb-10"></div>
+
+            <div class="col-xs-3 col-xs-offset-2">
+                <label for="email">Repeat email</label>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Repeat email"/>
+            </div>
+            <div class="clearfix mb-10"></div>
+
+            <div class="col-xs-3 col-xs-offset-2">
+                <label for="email">Password</label>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Password"/>
+            </div>
+            <div class="clearfix mb-10"></div>
+            <div class="mt-5">
+                <button type="submit" class="btn btn-default submit-form">REGISTER</button>
+            </div>
+        </div><!-- .col-xs-12
+    </div>
+</script>
+
+<script type="text/template" id="send-email-reset">
+    <div class="wrapper-email-reset form-popup">
+        <div class="col-xs-12 blue-sky mt-50 text-center">PASSWORD ALREADY SENT</div>
+        <div class="col-xs-12 mt-15 text-center">PLEASE CHECK YOUR EMAIL</div>
+    </div>
+</script>
 
     <script src="bower_components/bluezip.bootstrap/index.js"></script>
     <script src="bower_components/angular/index.js"></script>

@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import "local";
+@import "size";
 
 .slide-left{
   width: $slide-left-size;
@@ -21,7 +22,6 @@
     background-color: $main_nav_bg_color;
     color:$nav_font_color;
     height: 100%;
-    padding-top: 5px;
     padding-left: 10px;
     a.minus{
       float: right;

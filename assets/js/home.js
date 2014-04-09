@@ -50,6 +50,42 @@
     });
   });
 
+  app.controller('Gallery', function($scope, $http) {
+    $http.get("json/gallery.json").success(function(data) {
+      $scope.images = data;
+      return $scope.default_images = $scope.images[0];
+    });
+    return $scope.change = function(img) {
+      return $scope.default_images = img;
+    };
+  });
+
+  $('body').on('click', '.link-forgot-password', function() {
+    $.colorbox({
+      html: $('#forgot-password').html(),
+      innerWidth: 600,
+      innerHeight: 160,
+      transition: 'none',
+      opacity: 0.52
+    });
+    return false;
+  });
+
+  $('body').on('click', '.link-new-customer', function() {
+    $.colorbox({
+      html: $('#new-customer').html(),
+      innerWidth: 600,
+      innerHeight: 240,
+      transition: 'none',
+      opacity: 0.52
+    });
+    return false;
+  });
+
+  $('body').on('click', '.close-popup', function() {
+    return $.colorbox.close();
+  });
+
 }).call(this);
 
 //# sourceMappingURL=home.map

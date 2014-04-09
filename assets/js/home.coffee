@@ -44,3 +44,39 @@ app.controller('Notice',($scope,$http)->
     $scope.data  = data;
   );
 )
+app.controller('Gallery',($scope,$http)->
+  $http.get("json/gallery.json").success((data)->
+    $scope.images = data;
+    $scope.default_images = $scope.images[0];
+  );
+  $scope.change = (img) ->
+    $scope.default_images = img;
+)
+
+
+
+## popup
+$('body').on('click','.link-forgot-password',->
+  $.colorbox({
+    html:$('#forgot-password').html(),
+    innerWidth:600,
+    innerHeight:160,
+    transition:'none',
+    opacity : 0.52
+  });
+  false
+)
+$('body').on('click','.link-new-customer',->
+  $.colorbox({
+    html:$('#new-customer').html(),
+    innerWidth:600,
+    innerHeight:240,
+    transition:'none',
+    opacity : 0.52
+  });
+  false
+)
+
+$('body').on('click','.close-popup',->
+  $.colorbox.close()
+)

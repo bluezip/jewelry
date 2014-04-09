@@ -4017,6 +4017,32 @@ input[type="button"].btn-block {
   .alert-danger .alert-link {
     color: #843534; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/bower_components\/bootstrap\/vendor\/assets\/stylesheets\/bootstrap\/_close\.scss}line{font-family:\000036}}
+.close {
+  float: right;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  color: black;
+  text-shadow: 0 1px 0 white;
+  opacity: 0.2;
+  filter: alpha(opacity=20); }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/bower_components\/bootstrap\/vendor\/assets\/stylesheets\/bootstrap\/_close\.scss}line{font-family:\0000315}}
+  .close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.5;
+    filter: alpha(opacity=50); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/bower_components\/bootstrap\/vendor\/assets\/stylesheets\/bootstrap\/_close\.scss}line{font-family:\0000329}}
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none; }
+
 @media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/bower_components\/bootstrap\/vendor\/assets\/stylesheets\/bootstrap\/_mixins\.scss}line{font-family:\0000320}}
 .clearfix:before, .clearfix:after {
   content: " ";
