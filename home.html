@@ -27,6 +27,7 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
+    <script src="assets/js/lib/WPopup.js"></script>
 
     <title>My Web Application</title>
     <!-- Latest compiled and minified JavaScript -->
@@ -164,52 +165,56 @@
     <div class="wrapper-for-forgot-password form-popup">
         <div class="col-xs-6 text-center head-menu"></div>
         <div class="col-xs-6 text-center head-menu"><span class="pull-right close-popup">X</span></div>
-        <div class="col-xs-12 mt-15 form">
-            <div class="col-xs-3 col-xs-offset-1 text-right">
-                <label for="email">Email</label>
-            </div>
-            <div class="col-xs-4">
-                <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Email"/>
-            </div>
-            <div class="clearfix mb-10"></div>
-            <div class="mt-5">
-                <button type="submit" class="btn btn-default submit-form receive-password">RECEIVE PASSWORD</button>
-            </div>
-        </div><!-- .col-xs-12
+        <form action="forget-password.html">
+            <div class="col-xs-12 mt-15 form">
+                <div class="col-xs-3 col-xs-offset-1 text-right">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-xs-4">
+                    <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Email"/>
+                </div>
+                <div class="clearfix mb-10"></div>
+                <div class="mt-5">
+                    <button type="submit" class="btn btn-default submit-form receive-password">RECEIVE PASSWORD</button>
+                </div>
+            </div><!-- .col-xs-12 -->
+        </form>
     </div>
 </script>
 <script type="text/template" id="new-customer">
     <div class="wrapper-for-register form-popup">
         <div class="col-xs-6 text-center head-menu"></div>
         <div class="col-xs-6 text-center head-menu"><span class="pull-right close-popup">X</span></div>
-        <div class="col-xs-12 mt-10 form">
-            <div class="col-xs-3 col-xs-offset-2">
-                <label for="email">Email</label>
-            </div>
-            <div class="col-xs-4">
-                <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Email"/>
-            </div>
-            <div class="clearfix mb-10"></div>
+        <form action="new-customer.html">
+            <div class="col-xs-12 mt-10 form">
+                <div class="col-xs-3 col-xs-offset-2">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-xs-4">
+                    <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Email"/>
+                </div>
+                <div class="clearfix mb-10"></div>
 
-            <div class="col-xs-3 col-xs-offset-2">
-                <label for="email">Repeat email</label>
-            </div>
-            <div class="col-xs-4">
-                <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Repeat email"/>
-            </div>
-            <div class="clearfix mb-10"></div>
+                <div class="col-xs-3 col-xs-offset-2">
+                    <label for="email">Repeat email</label>
+                </div>
+                <div class="col-xs-4">
+                    <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Repeat email"/>
+                </div>
+                <div class="clearfix mb-10"></div>
 
-            <div class="col-xs-3 col-xs-offset-2">
-                <label for="email">Password</label>
-            </div>
-            <div class="col-xs-4">
-                <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Password"/>
-            </div>
-            <div class="clearfix mb-10"></div>
-            <div class="mt-5">
-                <button type="submit" class="btn btn-default submit-form">REGISTER</button>
-            </div>
-        </div><!-- .col-xs-12
+                <div class="col-xs-3 col-xs-offset-2">
+                    <label for="email">Password</label>
+                </div>
+                <div class="col-xs-4">
+                    <input type="text" id="email" name="email" class="form-control col-xs-6" placeholder="Password"/>
+                </div>
+                <div class="clearfix mb-10"></div>
+                <div class="mt-5">
+                    <button type="submit" class="btn btn-default submit-form">REGISTER</button>
+                </div>
+            </div><!-- .col-xs-12 -->
+        </form>
     </div>
 </script>
 
