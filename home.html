@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap -->
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/home.css" rel="stylesheet">
+    <link href="bower_components/daneden.animate/animate.css" rel="stylesheet">
+
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+
+    <title>My Web Application</title>
+    <!-- Latest compiled and minified JavaScript -->
+
+</head>
+<body ng-app="HomeApp">
+<div class="body">
+    <div class="slide-left">
+            <div class="main-nav">
+            <div class="logo"><a href="/home.html"><span class="t">T</span>ANAI</a></div>
+
+            <div class="hidden-xs mt-20 menu-list">
+                <ul class="nav">
+                    <li><a href="content.html?page=company">COMPANY</a></li>
+                    <li><a href="content.html?page=how-to-buy">HOW TO BUY</a></li>
+                    <li><a href="content.html?page=talk-with-us">TALK WITH US</a></li>
+                </ul>
+
+                <h3 class="collection">COLLECTIONS</h3>
+                <ul class="nav mt-10" ng-controller="Collection">
+                    <li ng-repeat="list in lists"><a href="product.html?{{ list.link }}">{{ list.label }}</a></li>
+                </ul>
+                <ul class="nav mb-20">
+                    <li>
+                        <a href="#type">WHAT IS NEW ?</a>
+                    </li>
+                </ul>
+
+                <ul class="nav">
+                    <li><a href="content.html?page=blog">BLOG</a></li>
+                    <li><a href="content.html?page=guest-book">GUESTBOOK</a></li>
+                    <li><a href="content.html?page=newsletter">NEWSLETTER</a></li>
+                </ul>
+
+                <ul class="nav mb-40">
+                    <li>
+                        <a href="content.html?page=work-with-us">WORK WITH US</a>
+                    </li>
+                </ul>
+
+                <div class="search">
+                    <div class="btn-group dropup" ng-controller="Language">
+                        <button type="button" class="btn btn-default dropdown-toggle  bnt-content"  data-toggle="dropdown">{{default_data.name}}</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="col-xs-12 list">
+                                <ul class="">
+                                    <li ng-class="{'active': list.code === default_data.code}" ng-repeat="list in list_select"><a href="?language={{ list.code }}" ng-click="change(list)">{{ list.name }}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="btn-group dropup" ng-controller="Currency">
+                        <button type="button" class="btn btn-default dropdown-toggle bnt-content" data-toggle="dropdown">{{default_data.name}}</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="col-xs-12 list">
+                                <ul class="">
+                                    <li ng-class="{'active': list.code === default_data.code}" ng-repeat="list in list_select"><a href="?currency={{ list.code }}" ng-click="change(list)">{{ list.name }}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- .search -->
+
+            </div>
+        </div>
+    </div><!-- .slide-left -->
+
+    <div class="content-container">
+        <div class="content-div">
+            <div class="screen" data-image="/images/banner/2.png"></div><!-- .screen -->
+            <div class="alert alert-danger fade in warning" ng-class="{'hidden' : data.show !== true}" ng-controller="Notice">
+                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                <h4>{{ data.title }}</h4>
+                <p>{{ data.description }}</p>
+                <p>
+            </div>
+        </div>
+    </div><!-- content-container -->
+</div>
+
+
+    <script src="bower_components/bluezip.bootstrap/index.js"></script>
+    <script src="bower_components/angular/index.js"></script>
+    <script src="bower_components/angular.ui-router/index.js"></script>
+    <script src="bower_components/angular.route/index.js"></script>
+    <script src="assets/js/home.js"></script>
+</body>
+</html>

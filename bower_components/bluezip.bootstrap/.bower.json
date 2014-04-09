@@ -1,0 +1,11 @@
+{
+  "name": "bluezip.bootstrap",
+  "_cacheHeaders": {
+    "Content-Length": "29165",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "main": "index.js",
+  "_source": "https://raw.githubusercontent.com/bluezip/bootstrap/master/js/bootstrap.min.js",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/bluezip/bootstrap/master/js/bootstrap.min.js"
+}

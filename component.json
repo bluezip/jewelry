@@ -1,0 +1,18 @@
+{
+    "name"              : "tanai",
+    "version"           : "0.1.0",
+    "dependencies"      : {
+        "jquery"                    : "jquery/jquery",
+        "bootstrap"                 : "twbs/bootstrap-sass",
+        "greensock"                 : "greensock/GreenSock-JS",
+        "daneden.animate"           : "daneden/animate.css",
+        "underscore"                : "jashkenas/underscore",
+        "bluezip.bootstrap"         : "https://raw.githubusercontent.com/bluezip/bootstrap/master/js/bootstrap.min.js",
+        "angular"                   : "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js",
+        "angular.route"             : "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js",
+        "angular.animate"           : "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.min.js",
+        "angular.resource"          : "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.min.js",
+        "angular.ui-router"         : "http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"
+
+    }
+}

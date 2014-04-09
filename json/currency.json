@@ -1,0 +1,27 @@
+[
+    {
+        "name" : "Australian Dollar",
+        "code" : "AUD"
+    },
+    {
+        "name" : "British Pound",
+        "code" : "GBP"
+    },
+    {
+        "name" : "Chilean Peso",
+        "code" : "CLP"
+    },
+    {
+        "name" : "Euro",
+        "code" : "EUR"
+    },
+    {
+        "name" : "Thai Baht",
+        "code" : "THB"
+    },
+    {
+        "name" : "United States",
+        "code" : "USD",
+        "default" : true
+    }
+]

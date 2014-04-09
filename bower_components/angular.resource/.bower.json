@@ -1,0 +1,11 @@
+{
+  "name": "angular.resource",
+  "_cacheHeaders": {
+    "Last-Modified": "Fri, 04 Apr 2014 03:37:55 GMT",
+    "Content-Type": "text/javascript; charset=UTF-8"
+  },
+  "main": "index.js",
+  "_source": "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.min.js",
+  "_target": "*",
+  "_originalSource": "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.min.js"
+}

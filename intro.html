@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap -->
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/intro.css" rel="stylesheet">
+    <link href="bower_components/daneden.animate/animate.css" rel="stylesheet">
+
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+
+    <title>My Web Application</title>
+    <!-- Latest compiled and minified JavaScript -->
+
+</head>
+<body ng-app="IntroApp">
+<div class="slide-banner" resizable ng-style="{ width: windowWidth, height: windowHeight }">
+    <div class="inner" ng-controller="Slide">
+        <img ng-src="{{ images.url }}" />
+    </div>
+
+    <div class="logo animated fadeInLeftBig" ng-controller="Logo">
+        <h1>T<span>ANAI</span></h1>
+        <h2>Jewelry Collections</h2>
+    </div>
+
+    <div class="form-list animated fadeInUpBig">
+        <div class="form"></div>
+        <div class="container">
+            <div class="row">
+                <div class="area">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="btn-group dropup" ng-controller="Language">
+                                <button type="button" class="btn btn-default  dropdown-toggle bnt-content" data-toggle="dropdown">{{default_data.name}}</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <div class="col-xs-12 language">
+                                        <ul id="languages">
+                                            <li ng-class="{'active': list.code === default_data.code}" ng-repeat="list in list_select"><a href="#{{ list.code }}" ng-click="change(list)">{{ list.name }}</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .col-xs-12 .col-md-6 -->
+
+                        <div class="col-xs-5">
+                            <div class="btn-group dropup" ng-controller="Currency">
+                                <button type="button" class="btn btn-default  dropdown-toggle bnt-content" data-toggle="dropdown">{{default_data.code}} {{default_data.name}}</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <div class="col-xs-12 currency">
+                                        <ul id="currencies">
+                                            <li ng-class="{'active': list.code === default_data.code}" ng-repeat="list in list_select"><a href="#{{ list.code }}"  ng-click="change(list)">{{list.code}} {{ list.name }}</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div><!-- .col-xs-12 .col-md-6 -->
+
+                        <div class="col-xs-2">
+                            <form id="form-submit" action="home.html" method="get" ng-controller="FormSubmit">
+                                <input type="hidden"  name="language" value="{{language}}" />
+                                <input type="hidden" name="currency" value="{{currency}}"/>
+                                <button type="submit" class="btn btn-default go">Go</button>
+                            </form>
+                        </div>
+                    </div> <!-- .row -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="bower_components/bluezip.bootstrap/index.js"></script>
+<script src="bower_components/angular/index.js"></script>
+<script src="bower_components/angular.ui-router/index.js"></script>
+<script src="bower_components/angular.route/index.js"></script>
+<script src="assets/js/intro.js"></script>
+</body>
+</html>

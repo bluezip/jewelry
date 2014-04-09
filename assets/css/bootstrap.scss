@@ -1,0 +1,27 @@
+@charset "UTF-8";
+@import "scss/variables";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/mixins";
+// Reset
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/normalize";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/print";
+
+// Core CSS
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/scaffolding";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/type";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/code";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/grid";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/tables";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/forms";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/component-animations";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/glyphicons";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/dropdowns";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/button-groups";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/input-groups";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/alerts";
+
+// Utility classes
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/utilities";
+@import "../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/responsive-utilities";

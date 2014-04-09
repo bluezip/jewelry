@@ -1,0 +1,121 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\000038}}
+.slide-banner {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  top: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000314}}
+  .slide-banner .inner {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -10;
+    overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000321}}
+    .slide-banner .inner img {
+      width: 100%;
+      height: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000327}}
+  .slide-banner .logo {
+    margin-left: 40px;
+    margin-top: 40px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000330}}
+    .slide-banner .logo h1 {
+      font-family: "Times New Roman",Times,serif;
+      font-size: 48px;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 0px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000336}}
+      .slide-banner .logo h1 span {
+        font-size: 33.6px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000340}}
+    .slide-banner .logo h2 {
+      font-family: "Times New Roman",Times,serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+      margin-top: 5px;
+      margin-left: 30px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000350}}
+  .slide-banner .form-list {
+    width: 100%;
+    position: fixed;
+    bottom: 20%;
+    height: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000355}}
+    .slide-banner .form-list .form {
+      padding: 30px;
+      background-color: #1a1a1a;
+      width: 100%;
+      z-index: 1;
+      display: block;
+      position: relative;
+      opacity: 0.3;
+      filter: alpha(opacity=30); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000367}}
+.container {
+  top: -45px;
+  z-index: 3;
+  position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000371}}
+  .container .area {
+    width: 500px;
+    margin: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000374}}
+    .container .area [class^="col-"] {
+      padding-left: 0;
+      padding-right: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000378}}
+    .container .area .btn {
+      padding: 5px;
+      color: #000000;
+      text-align: left;
+      outline: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000383}}
+      .container .area .btn.go {
+        width: 50px;
+        text-align: center;
+        outline: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000387}}
+        .container .area .btn.go:hover, .container .area .btn.go:active, .container .area .btn.go:focus, .container .area .btn.go.active {
+          background-color: #4d4d4d;
+          color: #ffffff;
+          border: 1px solid #4d4d4d; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000395}}
+  .container .btn-group {
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\0000397}}
+    .container .btn-group .bnt-content {
+      width: 195px;
+      color: black; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\00003101}}
+    .container .btn-group .dropdown-menu {
+      width: 100%;
+      opacity: 0.8;
+      filter: alpha(opacity=80); }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\00003104}}
+      .container .btn-group .dropdown-menu ul {
+        padding-left: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\00003106}}
+        .container .btn-group .dropdown-menu ul li {
+          list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\00003109}}
+          .container .btn-group .dropdown-menu ul li.active a {
+            font-weight: bold;
+            color: black; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\00003114}}
+          .container .btn-group .dropdown-menu ul li a {
+            padding: 4px;
+            color: #333333;
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-indent: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/Z\:\/code\/tanai\/assets\/css\/intro\.scss}line{font-family:\00003121}}
+            .container .btn-group .dropdown-menu ul li a:hover {
+              text-decoration: none;
+              background-color: #cccccc; }
