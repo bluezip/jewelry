@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@for $i from 0 through 30 {
+  .mb-#{5 * $i} {margin-bottom: 5px * $i !important;}
+  .mt-#{5 * $i} {margin-top: 5px * $i !important;}
+  .text-indent-#{5 * $i} {text-indent: 5px * $i;}
+}
+
+@mixin opacity($opacity) {
+  opacity:$opacity;
+  filter:alpha(opacity=$opacity * 100); /* For IE8 and earlier */
+}
+
+@mixin gradient($from, $to) {
+  background-image: radial-gradient(center bottom, ellipse cover, $from, $to);
+  background-image: -o-radial-gradient(center bottom, ellipse cover,  $from, $to);
+  background-image: -ms-radial-gradient(center bottom, ellipse cover,  $from, $to );
+  background-image: -moz-radial-gradient(center bottom, ellipse cover,  $from, $to);
+  background-image: -webkit-radial-gradient(center bottom, ellipse cover, $from, $to);
+}
