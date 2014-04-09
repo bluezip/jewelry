@@ -56,13 +56,17 @@ app.controller('Gallery',($scope,$http,$rootScope)->
     $scope.default_images = img;
     _current_image = $index;
 
+
+  _loop = 0
   setInterval(->
-    _current_image++;
-    if(_count_image <= _current_image )
-      _current_image = 0;
-    $scope.$apply(->
-      $scope.default_images = $scope.images[_current_image]
-    )
+    if _loop != 0
+      _current_image++;
+      if(_count_image <= _current_image )
+        _current_image = 0;
+      $scope.$apply(->
+        $scope.default_images = $scope.images[_current_image]
+      )
+    _loop++;
   ,4000)
 )
 

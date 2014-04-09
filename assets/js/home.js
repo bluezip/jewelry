@@ -51,7 +51,7 @@
   });
 
   app.controller('Gallery', function($scope, $http, $rootScope) {
-    var _count_image, _current_image;
+    var _count_image, _current_image, _loop;
     _current_image = 0;
     _count_image = 0;
     $http.get("json/gallery.json").success(function(data) {
@@ -63,14 +63,18 @@
       $scope.default_images = img;
       return _current_image = $index;
     };
+    _loop = 0;
     return setInterval(function() {
-      _current_image++;
-      if (_count_image <= _current_image) {
-        _current_image = 0;
+      if (_loop !== 0) {
+        _current_image++;
+        if (_count_image <= _current_image) {
+          _current_image = 0;
+        }
+        $scope.$apply(function() {
+          return $scope.default_images = $scope.images[_current_image];
+        });
       }
-      return $scope.$apply(function() {
-        return $scope.default_images = $scope.images[_current_image];
-      });
+      return _loop++;
     }, 4000);
   });
 
