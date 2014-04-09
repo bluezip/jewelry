@@ -47,17 +47,25 @@ app.controller('Notice',($scope,$http)->
 app.controller('Gallery',($scope,$http,$rootScope)->
   _current_image  = 0;
   _count_image    = 0;
+  _loop = 0;
   $http.get("json/gallery.json").success((data)->
     $scope.images = data;
     $scope.default_images = $scope.images[_current_image ];
     _count_image = $scope.images.length;
   );
   $scope.change = (img,$index) ->
-    $scope.default_images = img;
     _current_image = $index;
+    _loop = 0
+    completeHandler = ->
+      $scope.$apply(->
+        $scope.default_images = img;
+      )
+
+    TweenLite.to($('.screen'), .5, { opacity:.8, onComplete:completeHandler});
+    TweenLite.to($('.screen') , .5, { opacity:1,delay:.5});
 
 
-  _loop = 0
+
   setInterval(->
     if _loop != 0
       _current_image++;

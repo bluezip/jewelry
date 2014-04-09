@@ -54,16 +54,30 @@
     var _count_image, _current_image, _loop;
     _current_image = 0;
     _count_image = 0;
+    _loop = 0;
     $http.get("json/gallery.json").success(function(data) {
       $scope.images = data;
       $scope.default_images = $scope.images[_current_image];
       return _count_image = $scope.images.length;
     });
     $scope.change = function(img, $index) {
-      $scope.default_images = img;
-      return _current_image = $index;
+      var completeHandler;
+      _current_image = $index;
+      _loop = 0;
+      completeHandler = function() {
+        return $scope.$apply(function() {
+          return $scope.default_images = img;
+        });
+      };
+      TweenLite.to($('.screen'), .5, {
+        opacity: .8,
+        onComplete: completeHandler
+      });
+      return TweenLite.to($('.screen'), .5, {
+        opacity: 1,
+        delay: .5
+      });
     };
-    _loop = 0;
     return setInterval(function() {
       if (_loop !== 0) {
         _current_image++;
