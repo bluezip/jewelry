@@ -57,26 +57,24 @@ app.controller('Gallery',($scope,$http)->
 
 ## popup
 $('body').on('click','.link-forgot-password',->
-  $.colorbox({
-    html:$('#forgot-password').html(),
-    innerWidth:600,
-    innerHeight:160,
-    transition:'none',
-    opacity : 0.52
-  });
+  html = $('#forgot-password').html();
+  WPopup::html(html,160);
   false
 )
 $('body').on('click','.link-new-customer',->
-  $.colorbox({
-    html:$('#new-customer').html(),
-    innerWidth:600,
-    innerHeight:240,
-    transition:'none',
-    opacity : 0.52
-  });
+  html = $('#new-customer').html()
+  WPopup::html(html,220);
   false
 )
 
-$('body').on('click','.close-popup',->
-  $.colorbox.close()
+$('body').on('click','.wrapper-for-forgot-password button[type=submit]',->
+  html = $('#send-email-reset').html();
+  WPopup::html(html,160);
+  WPopup::auto_close(2000);
+  false
+
+)
+
+$('body').on('click','#cboxContent .close-popup',->
+  WPopup::close();
 )

@@ -61,29 +61,29 @@
   });
 
   $('body').on('click', '.link-forgot-password', function() {
-    $.colorbox({
-      html: $('#forgot-password').html(),
-      innerWidth: 600,
-      innerHeight: 160,
-      transition: 'none',
-      opacity: 0.52
-    });
+    var html;
+    html = $('#forgot-password').html();
+    WPopup.prototype.html(html, 160);
     return false;
   });
 
   $('body').on('click', '.link-new-customer', function() {
-    $.colorbox({
-      html: $('#new-customer').html(),
-      innerWidth: 600,
-      innerHeight: 240,
-      transition: 'none',
-      opacity: 0.52
-    });
+    var html;
+    html = $('#new-customer').html();
+    WPopup.prototype.html(html, 220);
     return false;
   });
 
-  $('body').on('click', '.close-popup', function() {
-    return $.colorbox.close();
+  $('body').on('click', '.wrapper-for-forgot-password button[type=submit]', function() {
+    var html;
+    html = $('#send-email-reset').html();
+    WPopup.prototype.html(html, 160);
+    WPopup.prototype.auto_close(2000);
+    return false;
+  });
+
+  $('body').on('click', '#cboxContent .close-popup', function() {
+    return WPopup.prototype.close();
   });
 
 }).call(this);
