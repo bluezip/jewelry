@@ -2,6 +2,9 @@
 @import "local";
 @import "size";
 
+@import "../scss/variables";
+@import "../../../bower_components/bootstrap/vendor/assets/stylesheets/bootstrap/mixins";
+
 .slide-left{
   width: $slide-left-size;
   height: 100%;
