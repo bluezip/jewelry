@@ -26,10 +26,9 @@
   ]);
 
   app.controller('Collection', function($scope, $http, $location) {
-    $http.get("json/collection.json").success(function(data) {
+    return $http.get("json/collection.json").success(function(data) {
       return $scope.lists = data;
     });
-    return console.log($location);
   });
 
   app.controller('Language', function($scope, $http) {
@@ -86,34 +85,42 @@
         });
       };
       TweenLite.to($('.screen'), .5, {
-        opacity: .8,
+        opacity: .9,
+        backgroundPosition: '+2048px center',
         onComplete: completeHandler
       });
       TweenLite.to($('.screen'), .5, {
         opacity: 1,
-        delay: .5
+        delay: .5,
+        backgroundPosition: '0px center'
       });
       return false;
     };
     return setInterval(function() {
+      var completeHandler;
       if (_loop !== 0) {
         _current_image++;
         if (_count_image <= _current_image) {
           _current_image = 0;
         }
-        $scope.$apply(function() {
-          return $scope.default_images = $scope.images[_current_image];
+        completeHandler = function() {
+          return $scope.$apply(function() {
+            return $scope.default_images = $scope.images[_current_image];
+          });
+        };
+        TweenLite.to($('.screen'), .5, {
+          opacity: .9,
+          backgroundPosition: '+2048px center',
+          onComplete: completeHandler
+        });
+        TweenLite.to($('.screen'), .5, {
+          opacity: 1,
+          delay: .5,
+          backgroundPosition: '0px center'
         });
       }
       return _loop++;
     }, 6000);
-  });
-
-  app.controller('Logins', function($scrope, $http) {
-    var html;
-    html = $('#forgot-password').html();
-    WPopup.prototype.html(html, 160);
-    return console.log('xxx');
   });
 
   $('body').on('click', '.link-forgot-password', function() {

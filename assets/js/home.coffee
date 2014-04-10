@@ -26,7 +26,6 @@ app.controller('Collection',($scope,$http,$location)->
   $http.get("json/collection.json").success((data)->
     $scope.lists  = data;
   );
-  console.log($location);
 )
 
 
@@ -76,9 +75,8 @@ app.controller('Gallery',($scope,$http,$rootScope,$location)->
       $scope.$apply(->
         $scope.default_images = img;
       )
-
-    TweenLite.to($('.screen'), .5, { opacity:.8, onComplete:completeHandler});
-    TweenLite.to($('.screen') , .5, { opacity:1,delay:.5});
+    TweenLite.to($('.screen'), .5, { opacity:.9,backgroundPosition:'+2048px center', onComplete:completeHandler});
+    TweenLite.to($('.screen') , .5, { opacity:1,delay:.5,backgroundPosition:'0px center',});
 
     false;
 
@@ -89,17 +87,14 @@ app.controller('Gallery',($scope,$http,$rootScope,$location)->
       _current_image++;
       if(_count_image <= _current_image )
         _current_image = 0;
-      $scope.$apply(->
-        $scope.default_images = $scope.images[_current_image]
-      )
+      completeHandler = ->
+        $scope.$apply(->
+          $scope.default_images = $scope.images[_current_image]
+        )
+      TweenLite.to($('.screen'), .5, { opacity:.9,backgroundPosition:'+2048px center', onComplete:completeHandler});
+      TweenLite.to($('.screen') , .5, { opacity:1,delay:.5,backgroundPosition:'0px center',});
     _loop++;
   ,6000)
-)
-
-app.controller('Logins',($scrope,$http)->
-  html = $('#forgot-password').html();
-  WPopup::html(html,160);
-  console.log('xxx')
 )
 
 ## popup

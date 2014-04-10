@@ -1,5 +1,8 @@
 <div class="content-div" ng-controller="Gallery">
     <div class="screen" ng-style="{'background-image':'url('+default_images.image+')'}">
+        <div class="hidden">
+            <img ng-src="{{ img.image }}" alt="" ng-repeat="img in images"/>
+        </div>
         <div class="wrapper-form-login">
             <div class="col-xs-10 col-xs-offset-1">
                 <div class="form-login">
