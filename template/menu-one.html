@@ -1,7 +1,15 @@
 <div class="main-nav">
-    <div class="logo"><a href="/home.html"><span class="t">T</span>ANAI</a></div>
+    <div class="logo">
+        <a href="/home.html"><span class="t">T</span>ANAI</a>
+    </div>
+
+    <div ng-controller="LeftMenu" class="open-close">
+        <a href="#minus-menu" ng-href="#" class="fa fa-plus plus visible-xs" ng-click="open()"></a>
+        <a href="#minus-menu" ng-href="#" class="fa fa-minus minus visible-xs hidden" ng-click="close()"></a>
+    </div>
 
     <div class="hidden-xs mt-20 menu-list">
+
         <ul class="nav">
             <li><a href="content.html?page=company">COMPANY</a></li>
             <li><a href="content.html?page=how-to-buy">HOW TO BUY</a></li>
