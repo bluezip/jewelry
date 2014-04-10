@@ -13,7 +13,7 @@
         "angular.animate"           : "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.min.js",
         "angular.resource"          : "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.min.js",
         "angular.ui-router"         : "http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js",
-        "colorbox"                  : "jackmoore/colorbox"
-
+        "colorbox"                  : "jackmoore/colorbox",
+        "FortAwesome"               : "FortAwesome/Font-Awesome"
     }
 }
