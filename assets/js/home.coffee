@@ -94,8 +94,31 @@ app.controller('Gallery',($scope,$http,$rootScope,$location)->
       TweenLite.to($('.screen'), .5, { opacity:.9,backgroundPosition:'+2048px center', onComplete:completeHandler});
       TweenLite.to($('.screen') , .5, { opacity:1,delay:.5,backgroundPosition:'0px center',});
     _loop++;
-  ,6000)
-)
+  ,5000)
+); #End gallery
+
+app.controller('LeftMenu',($scope)->
+  $scope.open  = ->
+    $('.menu-list').removeClass('hidden-xs');
+    $('.open-close .plus').addClass('hidden');
+    updateHandler = ->
+      $('.slide-left .main-nav').addClass('bg-write');
+      $('.open-close .minus').removeClass('hidden');
+    TweenLite.to($('.menu-list'), .5, {left:'-=200px',onUpdate:updateHandler()});
+    TweenLite.to($('.menu-list') , 1, {left:'0px',delay:.5});
+
+  $scope.close  = ->
+    $('.open-close .minus').addClass('hidden');
+    $('.menu-list').addClass('hidden-xs');
+    updateHandler = ->
+      $('.slide-left .main-nav').removeClass('bg-write');
+      $('.open-close .plus').removeClass('hidden');
+
+    TweenLite.to($('.menu-list'), 1, {left:'-=200px'});
+    TweenLite.to($('.menu-list'),.5,{left:'0px',onUpdate:updateHandler(),delay:1});
+
+);
+
 
 ## popup
 $('body').on('click','.link-forgot-password',->

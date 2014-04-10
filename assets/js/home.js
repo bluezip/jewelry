@@ -120,7 +120,44 @@
         });
       }
       return _loop++;
-    }, 6000);
+    }, 5000);
+  });
+
+  app.controller('LeftMenu', function($scope) {
+    $scope.open = function() {
+      var updateHandler;
+      $('.menu-list').removeClass('hidden-xs');
+      $('.open-close .plus').addClass('hidden');
+      updateHandler = function() {
+        $('.slide-left .main-nav').addClass('bg-write');
+        return $('.open-close .minus').removeClass('hidden');
+      };
+      TweenLite.to($('.menu-list'), .5, {
+        left: '-=200px',
+        onUpdate: updateHandler()
+      });
+      return TweenLite.to($('.menu-list'), 1, {
+        left: '0px',
+        delay: .5
+      });
+    };
+    return $scope.close = function() {
+      var updateHandler;
+      $('.open-close .minus').addClass('hidden');
+      $('.menu-list').addClass('hidden-xs');
+      updateHandler = function() {
+        $('.slide-left .main-nav').removeClass('bg-write');
+        return $('.open-close .plus').removeClass('hidden');
+      };
+      TweenLite.to($('.menu-list'), 1, {
+        left: '-=200px'
+      });
+      return TweenLite.to($('.menu-list'), .5, {
+        left: '0px',
+        onUpdate: updateHandler(),
+        delay: 1
+      });
+    };
   });
 
   $('body').on('click', '.link-forgot-password', function() {
