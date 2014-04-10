@@ -116,7 +116,12 @@
     return console.log('xxx');
   });
 
-  $('body').on('click', '.link-forgot-password', function() {});
+  $('body').on('click', '.link-forgot-password', function() {
+    var html;
+    html = $('#forgot-password').html();
+    WPopup.prototype.html(html, 160);
+    return false;
+  });
 
   $('body').on('click', '.link-new-customer', function() {
     var html;

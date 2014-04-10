@@ -104,8 +104,9 @@ app.controller('Logins',($scrope,$http)->
 
 ## popup
 $('body').on('click','.link-forgot-password',->
-#  html = $('#forgot-password').html();
-#  WPopup::html(html,160);
+  html = $('#forgot-password').html();
+  WPopup::html(html,160);
+  false;
 )
 $('body').on('click','.link-new-customer',->
   html = $('#new-customer').html()
