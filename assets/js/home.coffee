@@ -4,16 +4,32 @@ $ =jQuery;
 
 app = angular.module 'HomeApp', ['ngRoute','ui.router'], ()->
 
-app.config(['$stateProvider', '$locationProvider',() ->
-
+app.config(['$stateProvider', '$locationProvider','$urlRouterProvider',($stateProvider,$locationProvider,$urlRouterProvider) ->
+  $urlRouterProvider.otherwise('/');
+  $stateProvider
+    .state('home',{
+      url : "/",
+      views : {
+        left  : {
+          templateUrl : 'template/menu-one.html',
+        }
+        right : {
+          templateUrl : 'template/gallery.html',
+        }
+      }
+    });
 ]);
 
-app.controller('Collection',($scope,$http)->
+
+
+app.controller('Collection',($scope,$http,$location)->
   $http.get("json/collection.json").success((data)->
     $scope.lists  = data;
   );
-
+  console.log($location);
 )
+
+
 
 app.controller('Language',($scope,$http)->
   $http.get("json/language.json").success((data)->
@@ -44,7 +60,7 @@ app.controller('Notice',($scope,$http)->
     $scope.data  = data;
   );
 )
-app.controller('Gallery',($scope,$http,$rootScope)->
+app.controller('Gallery',($scope,$http,$rootScope,$location)->
   _current_image  = 0;
   _count_image    = 0;
   _loop = 0;
@@ -64,6 +80,8 @@ app.controller('Gallery',($scope,$http,$rootScope)->
     TweenLite.to($('.screen'), .5, { opacity:.8, onComplete:completeHandler});
     TweenLite.to($('.screen') , .5, { opacity:1,delay:.5});
 
+    false;
+
 
 
   setInterval(->
@@ -75,16 +93,19 @@ app.controller('Gallery',($scope,$http,$rootScope)->
         $scope.default_images = $scope.images[_current_image]
       )
     _loop++;
-  ,4000)
+  ,6000)
 )
 
-
+app.controller('Logins',($scrope,$http)->
+  html = $('#forgot-password').html();
+  WPopup::html(html,160);
+  console.log('xxx')
+)
 
 ## popup
 $('body').on('click','.link-forgot-password',->
-  html = $('#forgot-password').html();
-  WPopup::html(html,160);
-  false
+#  html = $('#forgot-password').html();
+#  WPopup::html(html,160);
 )
 $('body').on('click','.link-new-customer',->
   html = $('#new-customer').html()

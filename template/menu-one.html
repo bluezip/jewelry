@@ -1,0 +1,67 @@
+<div class="main-nav">
+    <div class="logo"><a href="/home.html"><span class="t">T</span>ANAI</a></div>
+
+    <div class="hidden-xs mt-20 menu-list">
+        <ul class="nav">
+            <li><a href="content.html?page=company">COMPANY</a></li>
+            <li><a href="content.html?page=how-to-buy">HOW TO BUY</a></li>
+            <li><a href="content.html?page=talk-with-us">TALK WITH US</a></li>
+        </ul>
+
+        <h3 class="collection">COLLECTIONS</h3>
+        <ul class="nav mt-10" ng-controller="Collection">
+            <li ng-repeat="list in lists"><a href="product.html?{{ list.link }}">{{ list.label }}</a></li>
+        </ul>
+        <ul class="nav mb-20">
+            <li>
+                <a href="product.html?page=what-is-new">WHAT IS NEW ?</a>
+            </li>
+        </ul>
+
+        <ul class="nav">
+            <li><a href="content.html?page=blog">BLOG</a></li>
+            <li><a href="content.html?page=guest-book">GUESTBOOK</a></li>
+            <li><a href="content.html?page=newsletter">NEWSLETTER</a></li>
+        </ul>
+
+        <ul class="nav mb-40">
+            <li>
+                <a href="content.html?page=work-with-us">WORK WITH US</a>
+            </li>
+        </ul>
+
+        <div class="search">
+            <div class="btn-group dropup" ng-controller="Language">
+                <button type="button" class="btn btn-default dropdown-toggle  bnt-content"  data-toggle="dropdown">{{default_data.name}}</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="col-xs-12 list">
+                        <ul class="">
+                            <li ng-class="{'active': list.code === default_data.code}" ng-repeat="list in list_select"><a href="?language={{ list.code }}" ng-click="change(list)">{{ list.name }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="btn-group dropup" ng-controller="Currency">
+                <button type="button" class="btn btn-default dropdown-toggle bnt-content" data-toggle="dropdown">{{default_data.name}}</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="col-xs-12 list">
+                        <ul class="">
+                            <li ng-class="{'active': list.code === default_data.code}" ng-repeat="list in list_select"><a href="?currency={{ list.code }}" ng-click="change(list)">{{ list.name }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .search -->
+
+    </div>
+</div>

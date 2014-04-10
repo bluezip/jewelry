@@ -8,12 +8,28 @@
 
   app = angular.module('HomeApp', ['ngRoute', 'ui.router'], function() {});
 
-  app.config(['$stateProvider', '$locationProvider', function() {}]);
+  app.config([
+    '$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
+      $urlRouterProvider.otherwise('/');
+      return $stateProvider.state('home', {
+        url: "/",
+        views: {
+          left: {
+            templateUrl: 'template/menu-one.html'
+          },
+          right: {
+            templateUrl: 'template/gallery.html'
+          }
+        }
+      });
+    }
+  ]);
 
-  app.controller('Collection', function($scope, $http) {
-    return $http.get("json/collection.json").success(function(data) {
+  app.controller('Collection', function($scope, $http, $location) {
+    $http.get("json/collection.json").success(function(data) {
       return $scope.lists = data;
     });
+    return console.log($location);
   });
 
   app.controller('Language', function($scope, $http) {
@@ -50,7 +66,7 @@
     });
   });
 
-  app.controller('Gallery', function($scope, $http, $rootScope) {
+  app.controller('Gallery', function($scope, $http, $rootScope, $location) {
     var _count_image, _current_image, _loop;
     _current_image = 0;
     _count_image = 0;
@@ -73,10 +89,11 @@
         opacity: .8,
         onComplete: completeHandler
       });
-      return TweenLite.to($('.screen'), .5, {
+      TweenLite.to($('.screen'), .5, {
         opacity: 1,
         delay: .5
       });
+      return false;
     };
     return setInterval(function() {
       if (_loop !== 0) {
@@ -89,15 +106,17 @@
         });
       }
       return _loop++;
-    }, 4000);
+    }, 6000);
   });
 
-  $('body').on('click', '.link-forgot-password', function() {
+  app.controller('Logins', function($scrope, $http) {
     var html;
     html = $('#forgot-password').html();
     WPopup.prototype.html(html, 160);
-    return false;
+    return console.log('xxx');
   });
+
+  $('body').on('click', '.link-forgot-password', function() {});
 
   $('body').on('click', '.link-new-customer', function() {
     var html;

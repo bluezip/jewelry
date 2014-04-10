@@ -1,0 +1,51 @@
+<div class="content-div" ng-controller="Gallery">
+    <div class="screen" ng-style="{'background-image':'url('+default_images.image+')'}">
+        <div class="wrapper-form-login">
+            <div class="col-xs-10 col-xs-offset-1">
+                <div class="form-login">
+                    <div class="form">
+                        <form id="login-form" action="login.html" method="post">
+                            <div class="labels">
+                                <input placeHolder="Email" class="form-control" name="email" id="email" type="text" />
+                            </div>
+                            <div class="labels">
+                                <input placeHolder="Password" class="form-control" name="password" id="password" type="password" />
+                            </div>
+
+                            <div class="buttons labels">
+                                <input type="submit" value="LOGIN" />
+                            </div>
+                        </form>
+                    </div><!-- .form -->
+
+                    <div class="forgot-password">
+                        <a href="#" ng-href="#" class="link-forgot-password">Forgot Your Password ?</a>
+                    </div><!-- .forgot-password -->
+
+                    <div class="new-customer">
+                        <a href="#" ng-href="#" class="link-new-customer">NEW CUSTOMER</a>
+                    </div><!-- .new-customer -->
+
+                    <div class="only-wholesalers">
+                        <p>Only Wholesalers</p>
+                        <p>& Retailers</p>
+                    </div>
+
+                    <div class="photo-slide">
+                        <ul class="slide">
+                            <li ng-class="{'active': img.id === default_images.id}" ng-repeat="img in images"><a href="#" ng-click="change(img,$index)">&nbsp;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .wrapper-form-login -->
+    </div><!-- .screen -->
+
+    <div class="col-xs-12" ng-class="{'hidden' : data.show !== true}" ng-controller="Notice">
+        <div class="alert alert-danger fade in warning">
+            <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+            <h4>{{ data.title }}</h4>
+            <p>{{ data.description }}</p>
+        </div>
+    </div>
+</div>
