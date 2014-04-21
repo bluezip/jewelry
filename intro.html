@@ -56,7 +56,7 @@
                                 <div class="dropdown-menu">
                                     <div class="col-xs-12 language">
                                         <ul id="languages">
-                                            <li ng-class="{'active': item.code === default_data.code}" ng-repeat="item in lists"><a href="#{{ item.code }}" ng-click="change(list)">{{ item.name }}</a></li>
+                                            <li ng-class="{'active': item.code === default_data.code}" ng-repeat="item in lists"><a href="#{{ item.code }}" ng-click="change(item)">{{ item.name }}</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div class="dropdown-menu">
                                     <div class="col-xs-12 currency">
                                         <ul id="currencies">
-                                            <li ng-class="{'active': item.code === default_data.code}" ng-repeat="item in lists"><a href="#{{ list.code }}"  ng-click="change(list)">{{item.code}} {{ item.name }}</a></li>
+                                            <li ng-class="{'active': item.code === default_data.code}" ng-repeat="item in lists"><a href="#{{ item.code }}"  ng-click="change(item)">{{item.code}} {{ item.name }}</a></li>
                                         </ul>
                                     </div>
                                 </div>
