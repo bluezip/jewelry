@@ -2,32 +2,50 @@ $ =jQuery;
 
 'use strict';
 
-app = angular.module 'IntroApp', ['ngRoute','ui.router'], ()->
+app = angular.module 'IntroApp', ['ngRoute','ui.router','LinkApp'], ()->
 
 app.config(['$stateProvider', '$locationProvider',() ->
 
 ]);
 
-app.controller 'Slide',($scope,$http) ->
-  $http.get("json/images-intro.json").success((data)->
+# The factory for other App.
+# LinkCurrency form LinkApp
+app.factory('$$Currency',(ListCurrencyUrl, $http)->
+  $http.get(ListCurrencyUrl);
+);
+
+# The factory for other App.
+# LinkLanguage form LinkApp
+app.factory('$$Language',(ListLanguageUrl,$http) ->
+  $http.get(ListLanguageUrl);
+);
+
+
+
+
+
+
+
+# Image Slide
+app.controller 'Slide',($scope,$http,ImageIntroUrl) ->
+  $http.get(ImageIntroUrl).success((data)->
     $scope.images  = data
   );
 
 
-app.controller 'Logo',($scope) ->
 
 
-app.controller 'Language',($scope,$rootScope, $http) ->
 
+app.controller 'Language',($scope,$rootScope,$$Language) ->
 
-  $http.get("json/language.json").success((data)->
-    $scope.list_select  = data;
-    _default = _.where($scope.list_select, {default : true});
-    $scope.default_data = _default[0];
+  $$Language.success((data)->
+    $scope.lists  = data;
+    _default      = _.where($scope.lists, {default : true});
+    $scope.default_data = _default[0]; # Default data
 
-    #Setup language
+    #Setup language default
     $rootScope.language = $scope.default_data.code;
-    $rootScope.$emit('change_data');
+    $rootScope.$emit('change_submit_data');
   );
 
   $scope.isActive = (code) ->
@@ -36,20 +54,24 @@ app.controller 'Language',($scope,$rootScope, $http) ->
   $scope.change = (data) ->
     $scope.default_data = data
     $rootScope.language = $scope.default_data.code;
-    $rootScope.$emit('change_data');
+    $rootScope.$emit('change_submit_data');
 
 
-app.controller 'Currency',($scope,$rootScope,$http) ->
 
-  $http.get("json/currency.json").success((data)->
-    $scope.list_select  = data;
 
-    _default = _.where($scope.list_select, {default : true});
-    $scope.default_data = _default[0];
 
-    # Setup currency
+
+
+app.controller 'Currency',($scope,$rootScope,$$Currency) ->
+
+  $$Currency.success((data)->
+    $scope.lists  = data
+    _default = _.where($scope.lists, {default : true});
+    $scope.default_data = _default[0]; # Default data
+
+    # Setup currency default
     $rootScope.currency = $scope.default_data.code;
-    $rootScope.$emit('change_data');
+    $rootScope.$emit('change_submit_data');
   );
 
   $scope.isActive = (code) ->
@@ -58,16 +80,23 @@ app.controller 'Currency',($scope,$rootScope,$http) ->
   $scope.change = (data) ->
     $scope.default_data = data
     $rootScope.currency = $scope.default_data.code;
-    $rootScope.$emit('change_data');
+    $rootScope.$emit('change_submit_data');
 
 
+
+
+
+# Form Submit to next
 app.controller 'FormSubmit',($scope,$rootScope)->
-  $rootScope.$on('change_data',->
+  $rootScope.$on('change_submit_data',->
     $scope.currency = $rootScope.currency;
     $scope.language = $rootScope.language;
   );
 
 
+
+
+# TODO: has bug when resize window
 app.directive 'resizable', ($window) ->
   _delay = 0
   ($scope,$element,$attrs) ->
