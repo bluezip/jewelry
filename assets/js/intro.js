@@ -6,28 +6,34 @@
 
   'use strict';
 
-  app = angular.module('IntroApp', ['ngRoute', 'ui.router'], function() {});
+  app = angular.module('IntroApp', ['ngRoute', 'ui.router', 'LinkApp'], function() {});
 
   app.config(['$stateProvider', '$locationProvider', function() {}]);
 
-  app.controller('Slide', function($scope, $http) {
-    return $http.get("json/images-intro.json").success(function(data) {
+  app.factory('$$Currency', function(ListCurrencyUrl, $http) {
+    return $http.get(ListCurrencyUrl);
+  });
+
+  app.factory('$$Language', function(ListLanguageUrl, $http) {
+    return $http.get(ListLanguageUrl);
+  });
+
+  app.controller('Slide', function($scope, $http, ImageIntroUrl) {
+    return $http.get(ImageIntroUrl).success(function(data) {
       return $scope.images = data;
     });
   });
 
-  app.controller('Logo', function($scope) {});
-
-  app.controller('Language', function($scope, $rootScope, $http) {
-    $http.get("json/language.json").success(function(data) {
+  app.controller('Language', function($scope, $rootScope, $$Language) {
+    $$Language.success(function(data) {
       var _default;
-      $scope.list_select = data;
-      _default = _.where($scope.list_select, {
+      $scope.lists = data;
+      _default = _.where($scope.lists, {
         "default": true
       });
       $scope.default_data = _default[0];
       $rootScope.language = $scope.default_data.code;
-      return $rootScope.$emit('change_data');
+      return $rootScope.$emit('change_submit_data');
     });
     $scope.isActive = function(code) {
       return code === $scope.default_data.code;
@@ -35,20 +41,20 @@
     return $scope.change = function(data) {
       $scope.default_data = data;
       $rootScope.language = $scope.default_data.code;
-      return $rootScope.$emit('change_data');
+      return $rootScope.$emit('change_submit_data');
     };
   });
 
-  app.controller('Currency', function($scope, $rootScope, $http) {
-    $http.get("json/currency.json").success(function(data) {
+  app.controller('Currency', function($scope, $rootScope, $$Currency) {
+    $$Currency.success(function(data) {
       var _default;
-      $scope.list_select = data;
-      _default = _.where($scope.list_select, {
+      $scope.lists = data;
+      _default = _.where($scope.lists, {
         "default": true
       });
       $scope.default_data = _default[0];
       $rootScope.currency = $scope.default_data.code;
-      return $rootScope.$emit('change_data');
+      return $rootScope.$emit('change_submit_data');
     });
     $scope.isActive = function(code) {
       return code === $scope.default_data.code;
@@ -56,12 +62,12 @@
     return $scope.change = function(data) {
       $scope.default_data = data;
       $rootScope.currency = $scope.default_data.code;
-      return $rootScope.$emit('change_data');
+      return $rootScope.$emit('change_submit_data');
     };
   });
 
   app.controller('FormSubmit', function($scope, $rootScope) {
-    return $rootScope.$on('change_data', function() {
+    return $rootScope.$on('change_submit_data', function() {
       $scope.currency = $rootScope.currency;
       return $scope.language = $rootScope.language;
     });
